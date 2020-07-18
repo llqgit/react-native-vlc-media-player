@@ -70,6 +70,11 @@ export default class VLCPlayerView extends Component {
     }
   }
 
+  onReplayPress() {
+    this.vlcPlayer.resume(true);
+    this.props.onReplayPress && this.props.onReplayPress();
+  }
+
   render() {
     let {
       onEnd,
@@ -86,7 +91,7 @@ export default class VLCPlayerView extends Component {
       videoAspectRatio,
       showGoLive,
       onGoLivePress,
-      onReplayPress,
+      // onReplayPress,
       titleGolive,
       showLeftButton,
       showMiddleButton,
@@ -246,7 +251,7 @@ export default class VLCPlayerView extends Component {
               }}
               showGoLive={showGoLive}
               onGoLivePress={onGoLivePress}
-              onReplayPress={onReplayPress}
+              onReplayPress={() => this.onReplayPress()}
               titleGolive={titleGolive}
               showLeftButton={showLeftButton}
               showMiddleButton={showMiddleButton}
